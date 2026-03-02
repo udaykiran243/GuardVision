@@ -9,3 +9,4 @@ greenlet~=3.0.0
 python-multipart~=0.0.22
 aiofiles~=25.1.0
 redis~=7.1.0
+
