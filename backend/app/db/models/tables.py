@@ -96,7 +96,7 @@ class ProcessingResult(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     file_id = Column(UUID(as_uuid=True), ForeignKey("job_files.id"), nullable=False, unique=True)
     redacted_file_path = Column(Text, nullable=False)
-    entities_detected = Column(JSONB, nullable=False, default={})
+    entities_detected = Column(JSONB, nullable=False, default=dict)
     processing_time_ms = Column(Integer, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
@@ -116,7 +116,7 @@ class AuditLog(Base):
     job_id = Column(UUID(as_uuid=True), ForeignKey("jobs.id", ondelete="RESTRICT"), nullable=False)
     file_id = Column(UUID(as_uuid=True), ForeignKey("job_files.id", ondelete="SET NULL"), nullable=True)
     event_type = Column(Text, nullable=False)
-    details = Column(JSONB, nullable=False, default={})
+    details = Column(JSONB, nullable=False, default=dict)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False) # Commonly needed for logs
 
     # Relationships

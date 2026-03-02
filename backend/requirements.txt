@@ -6,3 +6,7 @@ asyncpg~=0.31.0
 pydantic~=2.10.0
 pydantic-settings~=2.10.0
 greenlet~=3.0.0
+python-multipart~=0.0.22
+aiofiles~=25.1.0
+redis~=7.1.0
+
